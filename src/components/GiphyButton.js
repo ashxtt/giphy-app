@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 
-const GiphyForm = () =>{
+const Button = () =>{
     return(
     <div className="gif-form">
         <h1>GIPHY BABES</h1>
@@ -14,4 +14,4 @@ const GiphyForm = () =>{
     
 } 
 
-export default GiphyForm
+export default Button
