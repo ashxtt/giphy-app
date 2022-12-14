@@ -1,11 +1,14 @@
 
-import { useState } from "react"
 
-const Button = () =>{
+
+const Button = ({getGiphy}) =>{
+    const handleClick = () =>{
+        getGiphy()
+    }
     return(
-    <div className="gif-form">
-        <h1>GIPHY BABES</h1>
-        <button>Giphy Me</button>
+    <div className="button">
+        <h1>Press for a Giphy</h1>
+        <button onClick={handleClick}>RANDOMIZE</button>
     </div>
     )
 
