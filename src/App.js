@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import GiphyForm from './components/GiphyForm';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [giphyData, setGiphyData] = useState({});
+
+  const makeApiCall = async (giphyImg) =>{
+    const trendingUrl='https://api.giphy.com/v1/gifs/trending?api_key=ryKgtGyHYnzobDPXn5GaFjL1SS8pcL0F&limit=25&rating=g';
+    const res = await fetch(trendingUrl);
+    const json = await res.json
+
+    setGiphyData(json)
+  }
+  useEffect(()=>{
+    makeApiCall('random')
+  }, [])
+console.log(giphyData)
+
+ return(
+  <div className='App'>
+    <GiphyForm />
+  </div>
+ )
+  
 }
 
 export default App;
